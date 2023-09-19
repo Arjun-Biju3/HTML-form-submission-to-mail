@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-12 col-sm-6 col-md-4 p-5 position-absolute top-50 start-50 translate-middle text-bg-white border border-info border border-3 rounded" style="width: 500px;height: 500px;">
+        
+            <form id="submit-form" action="" >
+            <label for="">NAME</label>
+            <input  type="text" name="name" id="name1" placeholder="Name">
+            <br><br>
+            <label for="">EMAIL</label>
+            <input type="email" name="email" id="em1" placeholder="email">
+            <br><br>
+            <label for="">COUNTRY</label>
+        
+            <select name="country" id="count1">
+                <option value="ind">India</option>
+                <option value="aus">Australia</option>
+                <option value="usa">USA</option>
+              <br><br>
+            </select>
+            <br><br>
+            <label for="">SUBJECT</label>
+            <br><br>
+            <textarea name="sub" id="" cols="30" rows="10" placeholder="write here" style="height: 150px;width: 300px ;"></textarea>
+             <br><br>
+             <input type="submit" id="web" value="submit" class="btn btn-primary btn-lg">
+           </form>
+          
+        </div>
+    </div>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbztXR4Kjd5lERSk72n3vdBbzfAW5V6GYA_7e_qQabBYefCt0cQHGb4XYA-in8h_UxZcng/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
